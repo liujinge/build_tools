@@ -29,6 +29,9 @@ def make():
 
   cur_date = datetime.date.today().strftime("%m/%d/%Y")
 
+  base.replaceInFileRE(server_dir + "/Common/sources/constants.js", "exports.LICENSE_CONNECTIONS = [0-9]*", "exports.LICENSE_CONNECTIONS = " + "5000")
+  base.replaceInFileRE(server_dir + "/Common/sources/constants.js", "exports.LICENSE_USERS = [0-9]*", "exports.LICENSE_USERS = " + "5000")
+  base.replaceInFileRE(server_dir + "/Common/sources/constants.js", "exports.LICENSE_EXPIRE_USERS_ONE_DAY = [0-9]*", "exports.LICENSE_EXPIRE_USERS_ONE_DAY = " + "50000 * 24 * 60 * 60")
   base.replaceInFileRE(server_dir + "/Common/sources/commondefines.js", "const buildNumber = [0-9]*", "const buildNumber = " + build_number)
   base.replaceInFileRE(server_dir + "/Common/sources/license.js", "const buildDate = '[0-9-/]*'", "const buildDate = '" + cur_date + "'")
   base.replaceInFileRE(server_dir + "/Common/sources/commondefines.js", "const buildVersion = '[0-9.]*'", "const buildVersion = '" + product_version + "'")
